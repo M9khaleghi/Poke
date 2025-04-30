@@ -18,20 +18,28 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 const TopBar = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  z-index: 1200;
+  background: #f9a8d4;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: #f9a8d4;
   padding: 0.1rem 2vw 0.1rem 2vw;
 `;
 
 const Nav = styled.nav`
   display: flex;
-  gap: 1.3rem;
-  font-size: 1.3rem;
+  gap: 0.7rem;
+  font-size: 1.15rem;
   align-items: center;
   background: #f9a8d4;
   height: 26px;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  width: 100%;
 `;
 
 const StyledLink = styled(Link)`
@@ -56,6 +64,9 @@ const MainContent = styled.div`
   flex: 1;
   display: flex;
   flex-direction: column;
+  @media (max-width: 700px) {
+    margin-top: 100px;
+  }
 `;
 
 function App() {

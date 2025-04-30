@@ -17,6 +17,17 @@ const FooterWrapper = styled.footer`
   width: 100%;
   position: relative;
   overflow: hidden;
+  @media (max-width: 900px) {
+    gap: 1rem;
+    padding: 1.5rem 0 1rem 0;
+  }
+  @media (max-width: 700px) {
+    flex-direction: column;
+    align-items: center;
+    padding: 1.2rem 0.2rem 1.2rem 0.2rem;
+    gap: 1rem;
+    text-align: center;
+  }
 `;
 
 const BlurryBg = styled.img`
@@ -29,26 +40,47 @@ const BlurryBg = styled.img`
   filter: blur(4px) brightness(0.90);
   z-index: 0;
   pointer-events: none;
+  @media (max-width: 700px) {
+    width: 100%;
+    height: 100%;
+    max-width: 350px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
 `;
 
 const Container = styled.div`
-  max-width: 1200px;
   margin: 0 auto;
-  width: 100%;
+  width: 100vw;
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   padding: 0 3vw;
+  @media (max-width: 700px) {
+    flex-direction: column;
+    align-items: center;
+    padding: 0 1vw;
+  }
 `;
 
 const ContactCol = styled.div`
   min-width: 220px;
+  @media (max-width: 700px) {
+    min-width: 0;
+    font-size: 0.95rem;
+    margin-bottom: 0.7rem;
+  }
 `;
 
 const SocialCol = styled.div`
   min-width: 180px;
   text-align: center;
+  @media (max-width: 700px) {
+    min-width: 0;
+    font-size: 0.95rem;
+    margin-bottom: 0.7rem;
+  }
 `;
 
 const Title = styled.h3`
@@ -76,6 +108,10 @@ const SocialIcons = styled.div`
   justify-content: center;
   gap: 1.5rem;
   margin-top: 1rem;
+  @media (max-width: 700px) {
+    gap: 0.7rem;
+    margin-top: 0.5rem;
+  }
 `;
 
 const SocialLink = styled.a`
@@ -84,6 +120,9 @@ const SocialLink = styled.a`
   transition: color 0.2s;
   &:hover {
     color: #f9a8d4;
+  }
+  @media (max-width: 700px) {
+    font-size: 1.5rem;
   }
 `;
 
