@@ -1,99 +1,32 @@
 import React from 'react';
 import styled from 'styled-components';
+import HealthyImg from '../assets/Healthy.jpg';
+import NutellaImg from '../assets/Nutella.jpg';
+import BiskoffImg from '../assets/Biskoff.jpg';
+import TofuImg from '../assets/Tofu.jpg';
+import LaxImg from '../assets/Lax.jpg';
+import KycklingImg from '../assets/Kyckling.jpg';
+import RakorImg from '../assets/Räkor.jpg';
+import GreenProteinImg from '../assets/Green Protein.jpg';
+import PinkSmoothieImg from '../assets/Pink Smoothie.jpg';
+import MangoDreamImg from '../assets/Mango Dream.jpg';
 
-const MenuGrid = styled.div`
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
-  gap: 2rem;
+const Section = styled.section`
+  margin: 2.5rem 0 3.5rem 0;
   width: 100%;
-  margin: 2.5rem 0;
-  padding: 0;
-  @media (max-width: 700px) {
-    grid-template-columns: 1fr;
-    gap: 1rem;
-    padding: 0 0.2rem;
-  }
-  @media (max-width: 450px) {
-    gap: 0.5rem;
-    padding: 0 0.05rem;
-  }
 `;
 
-const PageContainer = styled.div`
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  flex-wrap: nowrap;
-  padding: 0;
-  @media (max-width: 700px) {
-    flex-direction: column;
-    align-items: center;
-    padding: 0 1vw;
-  }
-`;
-
-const Card = styled.div`
-  background: #fff8f1;
-  border-radius: 22px;
-  box-shadow: 0 4px 24px #f9a8d455;
-  padding: 1.1rem 0.7rem 0.9rem 0.7rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  position: relative;
-  transition: box-shadow 0.2s, transform 0.2s;
-  min-height: 220px;
-  max-width: 340px;
-  width: 100%;
-  margin: 0 auto;
-  &:hover {
-    box-shadow: 0 8px 32px #e11d4888;
-    transform: translateY(-4px) scale(1.02);
-  }
-  @media (max-width: 700px) {
-    padding: 0.7rem 0.3rem 0.6rem 0.3rem;
-    min-height: 0;
-    max-width: 98vw;
-  }
-  @media (max-width: 450px) {
-    padding: 0.5rem 0.1rem 0.5rem 0.1rem;
-  }
-`;
-
-const ImgPlaceholder = styled.div`
-  width: 70px;
-  height: 70px;
-  border-radius: 50%;
-  background: #f9a8d4;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
-  @media (max-width: 700px) {
-    width: 48px;
-    height: 48px;
-    font-size: 1.5rem;
-  }
-  @media (max-width: 450px) {
-    width: 36px;
-    height: 36px;
-    font-size: 1rem;
-  }
-`;
-
-const Title = styled.h2`
-  color: #e11d48;
+const SectionTitle = styled.h2`
   font-family: 'Pacifico', cursive, sans-serif;
-  font-size: 1.2rem;
-  margin-bottom: 0.4rem;
-  text-align: center;
+  color: #e11d48;
+  font-size: 2.1rem;
+  margin-bottom: 0.5rem;
+  border-left: 8px solid #f9a8d4;
+  padding-left: 1rem;
   @media (max-width: 700px) {
-    font-size: 1rem;
-  }
-  @media (max-width: 450px) {
-    font-size: 0.95rem;
+    font-size: 1.3rem;
+    padding-left: 0.5rem;
+    border-left-width: 4px;
   }
 `;
 
@@ -104,32 +37,68 @@ const PriceBadge = styled.span`
   border-radius: 16px;
   padding: 0.2em 1em;
   font-size: 1.1rem;
-  position: absolute;
-  top: 1.2rem;
-  right: 1.2rem;
-  box-shadow: 0 2px 8px #f59e4244;
-  @media (max-width: 700px) {
-    font-size: 0.9rem;
-    top: 0.7rem;
-    right: 0.7rem;
-    padding: 0.15em 0.7em;
+  margin-left: 1rem;
+`;
+
+const AcaiRow = styled.div`
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  margin-bottom: 2.5rem;
+  @media (max-width: 900px) {
+    flex-direction: column;
+    gap: 2rem;
   }
-  @media (max-width: 450px) {
-    font-size: 0.8rem;
-    top: 0.4rem;
-    right: 0.4rem;
-    padding: 0.1em 0.5em;
+`;
+
+const AcaiCard = styled.div`
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+`;
+
+const AcaiImg = styled.img`
+  width: 100%;
+  max-width: 300px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 22px;
+  box-shadow: 0 4px 24px #f9a8d455;
+  margin-bottom: 1rem;
+  @media (max-width: 900px) {
+    max-width: 340px;
+    height: 340px;
   }
+`;
+
+const AcaiText = styled.div`
+  width: 100%;
+  max-width: 300px;
+`;
+
+const BowlTitle = styled.h3`
+  color: #7c3aed;
+  font-size: 1.2rem;
+  margin-bottom: 0.2rem;
+  margin-top: 0;
+  font-family: 'Pacifico', cursive, sans-serif;
+`;
+
+const BowlDesc = styled.p`
+  margin: 0 0 1.2rem 0;
+  font-size: 1.05rem;
 `;
 
 const List = styled.ul`
   list-style: none;
   padding: 0;
-  margin: 0.3rem 0 0 0;
-  font-size: 0.95rem;
+  margin: 0.5rem 0 0 0;
+  font-size: 1.08rem;
   text-align: left;
   @media (max-width: 700px) {
-    font-size: 0.85rem;
+    font-size: 0.93rem;
   }
 `;
 
@@ -137,57 +106,286 @@ const ListItem = styled.li`
   margin-bottom: 0.4rem;
 `;
 
+const PokeRow = styled.div`
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  margin-bottom: 2.5rem;
+  @media (max-width: 900px) {
+    flex-direction: column;
+    gap: 2rem;
+  }
+`;
+
+const PokeCard = styled.div`
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+`;
+
+const PokeImg = styled.img`
+  width: 100%;
+  max-width: 300px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 22px;
+  box-shadow: 0 4px 24px #f9a8d455;
+  margin-bottom: 1rem;
+  @media (max-width: 900px) {
+    max-width: 340px;
+    height: 340px;
+  }
+`;
+
+const PokeText = styled.div`
+  width: 100%;
+  max-width: 300px;
+`;
+
+const SmoothieRow = styled.div`
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  margin-bottom: 2.5rem;
+  @media (max-width: 900px) {
+    flex-direction: column;
+    gap: 2rem;
+  }
+`;
+
+const SmoothieCard = styled.div`
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+`;
+
+const SmoothieImg = styled.img`
+  width: 100%;
+  max-width: 300px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 22px;
+  box-shadow: 0 4px 24px #f9a8d455;
+  margin-bottom: 1rem;
+  @media (max-width: 900px) {
+    max-width: 340px;
+    height: 340px;
+  }
+`;
+
+const SmoothieText = styled.div`
+  width: 100%;
+  max-width: 300px;
+`;
+
 function Menu() {
   return (
-    <MenuGrid>
-      <Card>
-        <ImgPlaceholder>🥣</ImgPlaceholder>
-        <Title>Acai Bowl</Title>
-        <PriceBadge>129:-</PriceBadge>
-        <List>
-          <ListItem><b>Healthy Bowl:</b> Acai, granola, banan, blåbär, hallon, jordgubb, jordnötssmör, kokosflakes & chiafrön</ListItem>
-          <ListItem><b>Nutella Bowl:</b> Acai, granola, banan, blåbär, hallon, jordgubb, Nutella, chokosticks & mandelnötter</ListItem>
-          <ListItem><b>Biskoff Bowl:</b> Acai, granola, banan, blåbär, hallon, jordgubb, Biskoffkräm & biskoffcrumble</ListItem>
-        </List>
-      </Card>
-      <Card>
-        <ImgPlaceholder>🍹</ImgPlaceholder>
-        <Title>Smoothies</Title>
-        <PriceBadge>69:-</PriceBadge>
-        <List>
-          <ListItem><b>Ginger:</b> Ingefära, ananas, banan, mango & äppeljuice</ListItem>
-          <ListItem><b>Mango Dream:</b> Mango, mangojuice, banan & agavesirap</ListItem>
-          <ListItem><b>Red Paradise:</b> Blåbär, hallon, jordgubb, äppeljuice, honung & vaniljyoghurt</ListItem>
-          <ListItem><b>Green Protein:</b> Banan, mango, spenat, mynta, chiafrön, pumpafrön, proteinpulver, kokos & äppeljuice</ListItem>
-          <ListItem><b>Blueberry:</b> Hallon, blåbär, honung, chiafrön & vaniljyoghurt</ListItem>
-          <ListItem><b>Pink Smoothie:</b> Hallon, mango, ananas, banan, kokos & vaniljyoghurt</ListItem>
-        </List>
-      </Card>
-      <Card>
-        <ImgPlaceholder>🥗</ImgPlaceholder>
-        <Title>Poké Bowl</Title>
-        <PriceBadge>från 119:-</PriceBadge>
-        <List>
-          <ListItem><b>Innehåll:</b> Sushiris, gurka, pokeslaw, soyabönor, picklad rödlök & sesamfrön</ListItem>
-          <ListItem><b>Protein:</b> Kyckling 119:-, Tofu 119:-, Tonfisk 135:-, Lax 135:-, Räkor 135:-</ListItem>
-          <ListItem><b>Spicy Bowl:</b> mango, spicy beans, rostad lök & chili mayo</ListItem>
-          <ListItem><b>Original Bowl:</b> wakame, mango & sesam mayo</ListItem>
-          <ListItem><b>Happy Bowl:</b> avocado, pumpafrön & wasabi mayo</ListItem>
-          <ListItem><b>Korean Kimchi:</b> wakame, vårlök & spicy mayo</ListItem>
-        </List>
-      </Card>
-      <Card>
-        <ImgPlaceholder>🥒</ImgPlaceholder>
-        <Title>Poké Sallad</Title>
-        <PriceBadge>från 119:-</PriceBadge>
-        <List>
-          <ListItem><b>Innehåll:</b> Svartris, sallad & poke slaw</ListItem>
-          <ListItem><b>Protein:</b> Kyckling 119:-, Tofu 119:-, Tonfisk 135:-, Lax 135:-, Räkor 135:-</ListItem>
-          <ListItem><b>Välj 4 toppings:</b> Avocado, mango, edamame, kimchi, gurka, wakame, fetaost, majs, oliver, picklad rödlök</ListItem>
-          <ListItem><b>Välj dressing:</b> Chili mayo, sesam mayo, wasabi mayo, vegansk chili mayo, teriyakisås</ListItem>
-        </List>
-      </Card>
-    </MenuGrid>
+    <div style={{width: '100%', maxWidth: 1200, margin: '0 auto', padding: '0 0.5rem'}}>
+      <Section>
+        <SectionTitle>Acai Bowls<PriceBadge>129:-</PriceBadge></SectionTitle>
+        <AcaiRow>
+          <AcaiCard>
+            <AcaiImg src={HealthyImg} alt="Healthy Bowl" />
+            <AcaiText>
+              <BowlTitle>Healthy Bowl</BowlTitle>
+              <BowlDesc>Acai, granola, banan, blåbär, hallon, jordgubb, jordnötssmör, kokosflakes & chiafrön</BowlDesc>
+            </AcaiText>
+          </AcaiCard>
+          <AcaiCard>
+            <AcaiImg src={NutellaImg} alt="Nutella Bowl" />
+            <AcaiText>
+              <BowlTitle>Nutella Bowl</BowlTitle>
+              <BowlDesc>Acai, granola, banan, blåbär, hallon, jordgubb, Nutella, chokosticks & mandelnötter</BowlDesc>
+            </AcaiText>
+          </AcaiCard>
+          <AcaiCard>
+            <AcaiImg src={BiskoffImg} alt="Biskoff Bowl" />
+            <AcaiText>
+              <BowlTitle>Biskoff Bowl</BowlTitle>
+              <BowlDesc>Acai, granola, banan, blåbär, hallon, jordgubb, Biskoffkräm & biskoffcrumble</BowlDesc>
+            </AcaiText>
+          </AcaiCard>
+        </AcaiRow>
+      </Section>
+      <Section>
+        <SectionTitle>Smoothies<PriceBadge>69:-</PriceBadge></SectionTitle>
+        <SmoothieRow>
+          <SmoothieCard>
+            <SmoothieImg src={GreenProteinImg} alt="Green Protein Smoothie" />
+            <SmoothieText>
+              <BowlTitle>Green Protein</BowlTitle>
+              <List>
+                <ListItem>Banan, mango, spenat, mynta, chiafrön, pumpafrön, proteinpulver, kokos & äppeljuice</ListItem>
+              </List>
+            </SmoothieText>
+          </SmoothieCard>
+          <SmoothieCard>
+            <SmoothieImg src={PinkSmoothieImg} alt="Pink Smoothie" />
+            <SmoothieText>
+              <BowlTitle>Pink Smoothie</BowlTitle>
+              <List>
+                <ListItem>Hallon, mango, ananas, banan, kokos & vaniljyoghurt</ListItem>
+              </List>
+            </SmoothieText>
+          </SmoothieCard>
+          <SmoothieCard>
+            <SmoothieImg src={MangoDreamImg} alt="Mango Dream" />
+            <SmoothieText>
+              <BowlTitle>Mango Dream</BowlTitle>
+              <List>
+                <ListItem>Mango, mangojuice, banan & agavesirap</ListItem>
+              </List>
+            </SmoothieText>
+          </SmoothieCard>
+          <SmoothieCard>
+            <SmoothieText>
+              <BowlTitle>Ginger</BowlTitle>
+              <List>
+                <ListItem>Ingefära, ananas, banan, mango & äppeljuice</ListItem>
+              </List>
+            </SmoothieText>
+          </SmoothieCard>
+          <SmoothieCard>
+            <SmoothieText>
+              <BowlTitle>Red Paradise</BowlTitle>
+              <List>
+                <ListItem>Blåbär, hallon, jordgubb, äppeljuice, honung & vaniljyoghurt</ListItem>
+              </List>
+            </SmoothieText>
+          </SmoothieCard>
+          <SmoothieCard>
+            <SmoothieText>
+              <BowlTitle>Blueberry</BowlTitle>
+              <List>
+                <ListItem>Hallon, blåbär, honung, chiafrön & vaniljyoghurt</ListItem>
+              </List>
+            </SmoothieText>
+          </SmoothieCard>
+        </SmoothieRow>
+      </Section>
+      <Section>
+        <SectionTitle>Poké Bowl<PriceBadge>från 119:-</PriceBadge></SectionTitle>
+        <PokeRow>
+          <PokeCard>
+            <PokeImg src={TofuImg} alt="Tofu Poké Bowl" />
+            <PokeText>
+              <BowlTitle>Tofu Poké Bowl</BowlTitle>
+              <List>
+                <ListItem><b>Innehåll:</b> Sushiris, gurka, pokeslaw, soyabönor, picklad rödlök & sesamfrön</ListItem>
+                <ListItem><b>Pris:</b> 119:-</ListItem>
+                <ListItem><b>Välj stil:</b></ListItem>
+                <ListItem>• Spicy Bowl: mango, spicy beans, rostad lök & chili mayo</ListItem>
+                <ListItem>• Original Bowl: wakame, mango & sesam mayo</ListItem>
+                <ListItem>• Happy Bowl: avocado, pumpafrön & wasabi mayo</ListItem>
+                <ListItem>• Korean Kimchi: wakame, vårlök & spicy mayo</ListItem>
+              </List>
+            </PokeText>
+          </PokeCard>
+          <PokeCard>
+            <PokeImg src={LaxImg} alt="Lax Poké Bowl" />
+            <PokeText>
+              <BowlTitle>Lax Poké Bowl</BowlTitle>
+              <List>
+                <ListItem><b>Innehåll:</b> Sushiris, gurka, pokeslaw, soyabönor, picklad rödlök & sesamfrön</ListItem>
+                <ListItem><b>Pris:</b> 135:-</ListItem>
+                <ListItem><b>Välj stil:</b></ListItem>
+                <ListItem>• Spicy Bowl: mango, spicy beans, rostad lök & chili mayo</ListItem>
+                <ListItem>• Original Bowl: wakame, mango & sesam mayo</ListItem>
+                <ListItem>• Happy Bowl: avocado, pumpafrön & wasabi mayo</ListItem>
+                <ListItem>• Korean Kimchi: wakame, vårlök & spicy mayo</ListItem>
+              </List>
+            </PokeText>
+          </PokeCard>
+          <PokeCard>
+            <PokeImg src={KycklingImg} alt="Kyckling Poké Bowl" />
+            <PokeText>
+              <BowlTitle>Kyckling Poké Bowl</BowlTitle>
+              <List>
+                <ListItem><b>Innehåll:</b> Sushiris, gurka, pokeslaw, soyabönor, picklad rödlök & sesamfrön</ListItem>
+                <ListItem><b>Pris:</b> 119:-</ListItem>
+                <ListItem><b>Välj stil:</b></ListItem>
+                <ListItem>• Spicy Bowl: mango, spicy beans, rostad lök & chili mayo</ListItem>
+                <ListItem>• Original Bowl: wakame, mango & sesam mayo</ListItem>
+                <ListItem>• Happy Bowl: avocado, pumpafrön & wasabi mayo</ListItem>
+                <ListItem>• Korean Kimchi: wakame, vårlök & spicy mayo</ListItem>
+              </List>
+            </PokeText>
+          </PokeCard>
+          <PokeCard>
+            <PokeImg src={RakorImg} alt="Räkor Poké Bowl" />
+            <PokeText>
+              <BowlTitle>Räkor Poké Bowl</BowlTitle>
+              <List>
+                <ListItem><b>Innehåll:</b> Sushiris, gurka, pokeslaw, soyabönor, picklad rödlök & sesamfrön</ListItem>
+                <ListItem><b>Pris:</b> 135:-</ListItem>
+                <ListItem><b>Välj stil:</b></ListItem>
+                <ListItem>• Spicy Bowl: mango, spicy beans, rostad lök & chili mayo</ListItem>
+                <ListItem>• Original Bowl: wakame, mango & sesam mayo</ListItem>
+                <ListItem>• Happy Bowl: avocado, pumpafrön & wasabi mayo</ListItem>
+                <ListItem>• Korean Kimchi: wakame, vårlök & spicy mayo</ListItem>
+              </List>
+            </PokeText>
+          </PokeCard>
+        </PokeRow>
+      </Section>
+      <Section>
+        <SectionTitle>Poké Sallad<PriceBadge>från 119:-</PriceBadge></SectionTitle>
+        <PokeRow>
+          <PokeCard>
+            <PokeImg src={TofuImg} alt="Tofu Poké Sallad" />
+            <PokeText>
+              <BowlTitle>Tofu Poké Sallad</BowlTitle>
+              <List>
+                <ListItem><b>Innehåll:</b> Svartris, sallad & poke slaw</ListItem>
+                <ListItem><b>Pris:</b> 119:-</ListItem>
+                <ListItem><b>Välj 4 toppings:</b> Avocado, mango, edamame, kimchi, gurka, wakame, fetaost, majs, oliver, picklad rödlök</ListItem>
+                <ListItem><b>Välj dressing:</b> Chili mayo, sesam mayo, wasabi mayo, vegansk chili mayo, teriyakisås</ListItem>
+              </List>
+            </PokeText>
+          </PokeCard>
+          <PokeCard>
+            <PokeImg src={LaxImg} alt="Lax Poké Sallad" />
+            <PokeText>
+              <BowlTitle>Lax Poké Sallad</BowlTitle>
+              <List>
+                <ListItem><b>Innehåll:</b> Svartris, sallad & poke slaw</ListItem>
+                <ListItem><b>Pris:</b> 135:-</ListItem>
+                <ListItem><b>Välj 4 toppings:</b> Avocado, mango, edamame, kimchi, gurka, wakame, fetaost, majs, oliver, picklad rödlök</ListItem>
+                <ListItem><b>Välj dressing:</b> Chili mayo, sesam mayo, wasabi mayo, vegansk chili mayo, teriyakisås</ListItem>
+              </List>
+            </PokeText>
+          </PokeCard>
+          <PokeCard>
+            <PokeImg src={KycklingImg} alt="Kyckling Poké Sallad" />
+            <PokeText>
+              <BowlTitle>Kyckling Poké Sallad</BowlTitle>
+              <List>
+                <ListItem><b>Innehåll:</b> Svartris, sallad & poke slaw</ListItem>
+                <ListItem><b>Pris:</b> 119:-</ListItem>
+                <ListItem><b>Välj 4 toppings:</b> Avocado, mango, edamame, kimchi, gurka, wakame, fetaost, majs, oliver, picklad rödlök</ListItem>
+                <ListItem><b>Välj dressing:</b> Chili mayo, sesam mayo, wasabi mayo, vegansk chili mayo, teriyakisås</ListItem>
+              </List>
+            </PokeText>
+          </PokeCard>
+          <PokeCard>
+            <PokeImg src={RakorImg} alt="Räkor Poké Sallad" />
+            <PokeText>
+              <BowlTitle>Räkor Poké Sallad</BowlTitle>
+              <List>
+                <ListItem><b>Innehåll:</b> Svartris, sallad & poke slaw</ListItem>
+                <ListItem><b>Pris:</b> 135:-</ListItem>
+                <ListItem><b>Välj 4 toppings:</b> Avocado, mango, edamame, kimchi, gurka, wakame, fetaost, majs, oliver, picklad rödlök</ListItem>
+                <ListItem><b>Välj dressing:</b> Chili mayo, sesam mayo, wasabi mayo, vegansk chili mayo, teriyakisås</ListItem>
+              </List>
+            </PokeText>
+          </PokeCard>
+        </PokeRow>
+      </Section>
+    </div>
   );
 }
 
